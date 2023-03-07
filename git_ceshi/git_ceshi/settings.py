@@ -74,10 +74,20 @@ WSGI_APPLICATION = 'git_ceshi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+DATABASES = {                                       # app01 连接数据库
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',       # 数据库引擎
+        'NAME': 'git_xuexi',                        # 数据库名称
+        'USER': 'root',                             # 数据库名称
+        'PASSWORD': '123456',                       # 数据库密码
+        'HOST': '127.0.0.1',                        # 哪台机器上安装了MySQL
+        'PORT': '3306',
     }
 }
 
