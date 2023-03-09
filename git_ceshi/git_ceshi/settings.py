@@ -24,8 +24,9 @@ SECRET_KEY = 'django-insecure-0wqaq*im-3-t*qu+z3o&__7thgo^z1!*mhl@mb&wknds#*#n)(
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+# 默认是127.0.0.1
 ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['192.168.0.108']         # 访问本机IP
 
 
 # Application definition    注册或者安装app
@@ -74,22 +75,22 @@ WSGI_APPLICATION = 'git_ceshi.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-DATABASES = {                                       # app01 连接数据库
+DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',       # 数据库引擎
-        'NAME': 'git_xuexi',                        # 数据库名称
-        'USER': 'root',                             # 数据库名称
-        'PASSWORD': '123456',                       # 数据库密码
-        'HOST': '127.0.0.1',                        # 哪台机器上安装了MySQL
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {                                       # app01 连接数据库
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',       # 数据库引擎
+#         'NAME': 'git_xuexi',                        # 数据库名称
+#         'USER': 'root',                             # 数据库名称
+#         'PASSWORD': '123456',                       # 数据库密码
+#         'HOST': '127.0.0.1',                        # 哪台机器上安装了MySQL
+#         'PORT': '3306',
+#     }
+# }
 
 
 # Password validation
@@ -113,9 +114,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
+# 浏览器显示的语言
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-Hans'
+# 设置时区
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
