@@ -118,11 +118,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # LANGUAGE_CODE = 'en-us'
 LANGUAGE_CODE = 'zh-Hans'
 # 设置时区
-TIME_ZONE = 'UTC'
+# TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False              # TIME_ZONE = 'Asia/Shanghai'和USE_TZ = False设置为当前时间
 
 
 # Static files (CSS, JavaScript, Images)
