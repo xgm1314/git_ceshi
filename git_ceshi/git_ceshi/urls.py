@@ -14,8 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from git01.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('index/', index),
+    path('git01/', include('git01.urls'))           # 在app里添加urls,访问是需要加上项目的urls和app的urls
 ]
