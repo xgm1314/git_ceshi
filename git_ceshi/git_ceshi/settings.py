@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# print(__file__)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-0wqaq*im-3-t*qu+z3o&__7thgo^z1!*mhl@mb&wknds#*#n)('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # 调试模式，在程序正式上线之后需要改成False
 # 默认是127.0.0.1
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['192.168.0.108']         # 访问本机IP
+ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['192.168.3.39']         # 访问本机IP
 
 
 # Application definition    注册或者安装app
@@ -55,7 +55,8 @@ ROOT_URLCONF = 'git_ceshi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 告知系统，文件模板放在哪里
+        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],  # 告知系统，文件模板放在哪里
+        'DIRS': [BASE_DIR, 'templates'],  # 告知系统，文件模板放在哪里
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,9 +126,13 @@ USE_TZ = False  # TIME_ZONE = 'Asia/Shanghai'和USE_TZ = False设置为当前时
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')  # 告知系统，图片存放位置
+]
