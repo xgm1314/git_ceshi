@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <!--
+        第一步：导入uve.js 先导入vue.js所以在head中导入
+        第二步：定义一个标签，来接管标签中的内容
+        第三步：创建vue实例，让vue实例获取HTML
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <!--html相关内容-->
+    {{ message }}
+    [[message]]
+    <hr>
+    <!--<a v-bind:href="next">点击有惊喜</a>-->
+    <a :href="next">点击有惊喜</a>
+    <hr>
+    <a href="#" v-if="isLogin">个人中心</a>
+    <a href="#" v-else>登录,注册</a>
+    <hr>
+    <a href="#" v-if="level===1">皇帝</a>
+    <a href="#" v-else-if="level===2">皇亲</a>
+    <a href="#" v-else-if="level===3">国戚</a>
+    <a href="#" v-else-if="level===4">大臣</a>
+    <a href="#" v-else-if="level===5">贫民</a>
+    <a href="#" v-else="level===6">输入错误</a>
+    <hr>
+    <span v-if="seen">if</span>
+    <span v-show="seen">show</span>
+    <hr>
+    <ul>
+        <!--<li v-for="shop in shops">[[shop]]</li>-->
+        <li v-for="(shop,index) in shops">第[[index+1]]家店 :[[shop]]</li> <!--(shop,index) (列表元素,索引)-->
+    </ul>
+    <hr>
+    <ul>
+        <li v-for="(value,name) in object">[[name]]:[[value]]</li>
+    </ul>
+    <hr>
+    <button v-on:click="counter+=1">Add 1</button>
+    <span>this is result [[counter]]</span>
+    <hr>
+    <button v-on:click="login">注册</button>
+    <hr>
+    <button v-on:click="sayHi('hz')">sayHi</button>             <!--v-on: 或者 @-->
+</div>
+</body>
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],                 //更改分隔符
+        data: {
+            message: 'hello vue',
+            next: 'http://www.baidu.com',
+            isLogin: true,
+            level: 1,
+            seen: true,
+            shops: ['bj', 'sh', 'gz', 'sz', 'hz'],
+            object: {
+                title: 'How to do lists in Vue',
+                author: 'Jane Doe',
+                publishedAt: '2016-04-10'
+            },
+            counter: 0,
+        },
+        methods: {
+            //函数
+            login: function () {
+                alert('登录中~~~')
+            },
+            sayHi: function (message) {
+                alert(message)
+            }
+        }
+    })
+</script>
+</html>
